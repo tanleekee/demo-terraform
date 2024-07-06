@@ -53,10 +53,16 @@ resource "aws_instance" "web_server" {
   user_data = <<-EOF
     #!/bin/bash
     yum update -y
-    yum install -y httpd
+    yum install -y httpd php php-mysqli mariadb105
     systemctl start httpd
     systemctl enable httpd
     echo "<h1>Hello, World!</h1>" > /var/www/html/index.html
+    sudo usermod -a -G apache ec2-user
+    sudo chown -R ec2-user:apache /var/www
+    sudo chmod 2775 /var/www
+    find /var/www -type d -exec sudo chmod 2775 {} \;
+    find /var/www -type f -exec sudo chmod 0664 {} \;
+    mkdir /var/www/inc
     EOF
 }
 
