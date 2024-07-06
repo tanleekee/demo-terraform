@@ -70,7 +70,7 @@ resource "aws_instance" "web_server" {
     mkdir /var/www/inc
     cat <<EOINC > /var/www/inc/dbinfo.inc
     <?php
-      define('DB_SERVER', '${terraform.output.rds_endpoint}');
+      define('DB_SERVER', '${aws_db_instance.mysql_db.endpoint}');
       define('DB_USERNAME', 'demouser');
       define('DB_PASSWORD', 'demoPassword');
       define('DB_DATABASE', 'demodb');
