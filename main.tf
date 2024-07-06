@@ -72,7 +72,7 @@ resource "aws_instance" "web_server" {
       define('DB_DATABASE', 'sample');
     ?>
     EOINC
-    curl -o /var/www/html/connectdb.php 
+    curl -o /var/www/html/demo.php https://raw.githubusercontent.com/tanleekee/demo-terraform/main/demo.php
     EOF
 }
 
