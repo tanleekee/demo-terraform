@@ -63,13 +63,12 @@ resource "aws_instance" "web_server" {
     find /var/www -type d -exec sudo chmod 2775 {} \;
     find /var/www -type f -exec sudo chmod 0664 {} \;
     mkdir /var/www/inc
-    touch /var/www/inc/dbinfo.inc
     cat <<EOINC > /var/www/inc/dbinfo.inc
     <?php
       define('DB_SERVER', 'db_instance_endpoint');
-      define('DB_USERNAME', 'tutorial_user');
-      define('DB_PASSWORD', 'master password');
-      define('DB_DATABASE', 'sample');
+      define('DB_USERNAME', 'demouser');
+      define('DB_PASSWORD', 'demoPassword');
+      define('DB_DATABASE', 'demodb');
     ?>
     EOINC
     curl -o /var/www/html/demo.php https://raw.githubusercontent.com/tanleekee/demo-terraform/main/demo.php
@@ -103,9 +102,9 @@ resource "aws_db_instance" "mysql_db" {
   instance_class         = "db.t3.micro"
   allocated_storage      = 20
   storage_type           = "gp2"
-  db_name                = "mydb"
-  username               = "mysqluser"
-  password               = "mysqlpassword" # Use a secure password
+  db_name                = "demodb"
+  username               = "demouser"
+  password               = "demoPassword" # Use a secure password
   vpc_security_group_ids = [aws_security_group.rds_sg.id]
   skip_final_snapshot    = true
   publicly_accessible    = false
