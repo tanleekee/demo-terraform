@@ -5,6 +5,8 @@ This simple IAC demo will use terrafrom script to create ec2 instance and RDS in
 - AWS account
 
 ## Setup Terraform in AWS cloudshell
-
+```
+terraform init
+```
 
    
