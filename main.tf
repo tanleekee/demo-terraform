@@ -1,5 +1,5 @@
 provider "aws" {
-  region = "us-west-1" # Replace with your desired AWS region
+  region = "us-west-1" # AWS region
 }
 
 # Create a VPC
@@ -24,7 +24,7 @@ resource "aws_internet_gateway" "gw" {
 resource "aws_subnet" "public_subnet" {
   vpc_id                  = aws_vpc.main.id
   cidr_block              = "10.0.1.0/24"
-  availability_zone       = "us-west-1a" # Replace with your desired AZ
+  availability_zone       = "us-west-1b" # Public subnet in us-west-1a
   map_public_ip_on_launch = true
 
   tags = {
@@ -36,7 +36,7 @@ resource "aws_subnet" "public_subnet" {
 resource "aws_subnet" "private_subnet" {
   vpc_id            = aws_vpc.main.id
   cidr_block        = "10.0.2.0/24"
-  availability_zone = "us-west-1b" # Replace with your desired AZ
+  availability_zone = "us-west-1c" # Private subnet in us-west-1b
 
   tags = {
     Name = "Private Subnet"
@@ -89,7 +89,7 @@ resource "aws_security_group" "web_server_sg" {
 
 # Create an EC2 instance in the public subnet
 resource "aws_instance" "web_server" {
-  ami           = "ami-0cff7528ff583bf9a" # Amazon Linux 2 AMI (HVM), SSD Volume Type
+  ami           = "ami-0e4035ae3f70c0960" # Amazon Linux 2 AMI (HVM), SSD Volume Type in us-west-1
   instance_type = "t2.micro"
   subnet_id     = aws_subnet.public_subnet.id
   vpc_security_group_ids = [aws_security_group.web_server_sg.id]
