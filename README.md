@@ -1,9 +1,10 @@
 # Introduction
 This simple IAC demo will use terrafrom script to create ec2 instance and RDS instance.
-ec2 instance will host php<sup>1</sup> web page that interact with RDS database.
+ec2 instance will host php web page that interact with RDS database.
 
 ## Pre-Requisite
 - AWS account
+- Computer with any modern browser with internet access
 
 ## Setup Terraform in AWS cloudshell
 
@@ -47,9 +48,23 @@ terraform apply
 terraform destroy
 ```
 
+## ec2 creation
+` this is code for ec2 creation`
+
+## RDS creation
+` this is code for RDS creation`
+
+## Security Group creation
+` this is code for SG creation`
+
+## User Data
+
+` this is code for user data`
+> :bulb: **Tip:** Remember to appreciate the little things in life.
+
 
 ## Reference
+
 1. https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/CHAP_Tutorials.WebServerDB.CreateWebServer.html
-2. https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/TUT_WebAppWithRDS.html
 
    
