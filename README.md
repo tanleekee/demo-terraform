@@ -10,7 +10,12 @@ Take note you will likely incur charges
 ### Download Terraform into home folder
 
 ```
-curl -o terraform1.9.2.zip https://releases.hashicorp.com/terraform/1.9.1/terraform_1.9.1_darwin_arm64.zip
+curl -o terraform.zip https://releases.hashicorp.com/terraform/1.9.1/terraform_1.9.1_darwin_arm64.zip
+```
+```
+mkdir bin
+mv terraform.zip ./bin/
+unzip bin/terraform.zip
 ```
 
    
