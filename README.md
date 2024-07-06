@@ -1,6 +1,6 @@
 # Introduction
 This simple IAC demo will use terrafrom script to create ec2 instance and RDS instance.
-Take note you will likely incur charges 
+ec2 instance will host php web page that interact with RDS database.
 
 ## Pre-Requisite
 - AWS account
@@ -21,5 +21,25 @@ terraform --version
 ```
 
 ## Running terraform to create cloud resources 
-After terraform binary is installed, the next step is to download terraform script 
+Create a demo folder
+```
+mkdir ~/demo
+```
+Download main.tf into demo folder
+```
+cd demo
+curl -o main.tf https://aaaa
+```
+Initialise terraform
+```
+terraform init
+```
+```
+terraform plan
+```
+```
+terraform apply
+```
+
+
    
