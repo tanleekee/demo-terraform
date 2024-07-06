@@ -49,6 +49,10 @@ resource "aws_instance" "web_server" {
     aws_db_instance.mysql_db
   ]
 
+  tags = {
+    Name = "IAC-demo-ec2"
+  }
+
   ami           = "ami-06c68f701d8090592" # Amazon Linux AMI
   instance_type = "t2.micro"
   subnet_id     = tolist(data.aws_subnets.default_subnets.ids)[0]
