@@ -34,13 +34,15 @@ Initialise terraform
 ```
 terraform init
 ```
+Preview cloud resources creation
 ```
 terraform plan
 ```
+Create cloud resources. Terraform will prompt for confirmation. Enter yes to proceed, or no to cancel.
 ```
 terraform apply
 ```
-## Remove cloud resource 
+## Clean up cloud resources. 
 ```
 terraform destroy
 ```
