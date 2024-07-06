@@ -40,6 +40,14 @@ terraform plan
 ```
 terraform apply
 ```
+## Remove cloud resource 
+```
+terraform destroy
+```
 
+
+## Reference
+1. https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/CHAP_Tutorials.WebServerDB.CreateWebServer.html
+2. https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/TUT_WebAppWithRDS.html
 
    
