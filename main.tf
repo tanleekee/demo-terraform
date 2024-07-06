@@ -70,12 +70,13 @@ resource "aws_instance" "web_server" {
     mkdir /var/www/inc
     cat <<EOINC > /var/www/inc/dbinfo.inc
     <?php
-      define('DB_SERVER', 'db_instance_endpoint');
+      define('DB_SERVER', '${terraform.output.rds_endpoint}');
       define('DB_USERNAME', 'demouser');
       define('DB_PASSWORD', 'demoPassword');
       define('DB_DATABASE', 'demodb');
     ?>
     EOINC
+    cat 
     curl -o /var/www/html/demo.php https://raw.githubusercontent.com/tanleekee/demo-terraform/main/demo.php
     EOF
 }
