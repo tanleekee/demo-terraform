@@ -44,6 +44,7 @@ resource "aws_security_group" "ec2_sg" {
 
 # Create an EC2 instance
 resource "aws_instance" "web_server" {
+  
   depends_on = [
     aws_db_instance.mysql_db
   ]
