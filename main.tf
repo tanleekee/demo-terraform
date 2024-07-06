@@ -63,6 +63,16 @@ resource "aws_instance" "web_server" {
     find /var/www -type d -exec sudo chmod 2775 {} \;
     find /var/www -type f -exec sudo chmod 0664 {} \;
     mkdir /var/www/inc
+    touch /var/www/inc/dbinfo.inc
+    cat <<EOINC > /var/www/inc/dbinfo.inc
+    <?php
+      define('DB_SERVER', 'db_instance_endpoint');
+      define('DB_USERNAME', 'tutorial_user');
+      define('DB_PASSWORD', 'master password');
+      define('DB_DATABASE', 'sample');
+    ?>
+    EOINC
+    curl -o /var/www/html/connectdb.php 
     EOF
 }
 
