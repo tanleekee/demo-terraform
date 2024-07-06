@@ -37,7 +37,7 @@ resource "aws_security_group" "ec2_sg" {
 
 # Create an EC2 instance
 resource "aws_instance" "web_server" {
-  ami           = "ami-0b0af3577fe5e3532" # Amazon Linux 2 AMI (HVM), SSD Volume Type
+  ami           = "ami-06c68f701d8090592" # Amazon Linux 2 AMI (HVM), SSD Volume Type
   instance_type = "t2.micro"
   subnet_id     = tolist(data.aws_subnets.default_subnets.ids)[0]
   vpc_security_group_ids = [aws_security_group.ec2_sg.id]
