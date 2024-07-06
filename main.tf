@@ -76,7 +76,7 @@ resource "aws_security_group" "rds_sg" {
 # Create an RDS MySQL instance
 resource "aws_db_instance" "mysql_db" {
   engine                 = "mysql"
-  engine_version         = "8.0.28"
+  engine_version         = "8.0.37"
   instance_class         = "db.t3.micro"
   allocated_storage      = 20
   storage_type           = "gp2"
