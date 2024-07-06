@@ -1,6 +1,6 @@
 # Introduction
 This simple IAC demo will use terrafrom script to create ec2 instance and RDS instance.
-ec2 instance will host php web page that interact with RDS database.
+ec2 instance will host php<sup>1</sup> web page that interact with RDS database.
 
 ## Pre-Requisite
 - AWS account
@@ -42,7 +42,7 @@ Create cloud resources. Terraform will prompt for confirmation. Enter yes to pro
 ```
 terraform apply
 ```
-## Clean up cloud resources. 
+## Clean up cloud resources
 ```
 terraform destroy
 ```
