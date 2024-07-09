@@ -52,7 +52,7 @@ Preview cloud resources creation
 terraform plan
 ```
 Create cloud resources. Terraform will prompt for confirmation. Enter yes to proceed, or no to cancel.   
-*RDS instance provision takes ~5-6 minutes*
+*RDS instance creation takes ~5-6 minutes*
 
 ```
 terraform apply
@@ -67,7 +67,9 @@ http://public_IP_address_of_ec2/demo.php
 ```
 ## Clean up cloud resources
 
-:warning: **Warning:** Remember to clean up all cloud resources to stop incurring cost in your AWS account.
+:warning: **Warning:** Remember to clean up all cloud resources to stop incurring cost in your AWS account.  
+
+Terraform will prompt for confirmation. Enter yes to proceed, or no to cancel.  
 ```
 terraform destroy
 ```
