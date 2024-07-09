@@ -20,8 +20,12 @@ unzip terraform.zip -d bin/
 ```
 terraform --version
 ```
+Alternatively you can install Terraform using yum command.    
+Follow steps from https://developer.hashicorp.com/terraform/tutorials/aws-get-started/install-cli
+
 
 ## Running terraform to create cloud resources 
+
 Create a demo folder
 ```
 mkdir ~/demo
@@ -60,12 +64,15 @@ Validate RDS is up and working using the php web page
 http://public_IP_address_of_ec2/demo.php
 ```
 ## Clean up cloud resources
+
 :warning: **Warning:** Remember to clean up all cloud resources to stop incurring cost in your AWS account.
 ```
 terraform destroy
 ```
 ## Code blocks for resources creation
+
 ### ec2 creation
+
 ```
 # Create an EC2 instance
 resource "aws_instance" "web_server" {
@@ -87,6 +94,7 @@ resource "aws_instance" "web_server" {
 ```
 
 ### RDS creation
+
 ```
 # Create an RDS MySQL instance
 resource "aws_db_instance" "mysql_db" {
@@ -106,6 +114,7 @@ resource "aws_db_instance" "mysql_db" {
 ```
 
 ### Security Group creation
+
 ```
  # Create a security group for EC2
 resource "aws_security_group" "ec2_sg" {
