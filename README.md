@@ -156,12 +156,15 @@ resource "aws_security_group" "ec2_sg" {
 
 ```
 user_data = <<-EOF
-    #!/bin/bash
+       #!/bin/bash
+    # Install http server, and necessary tools/libraries #
     yum update -y
     yum install -y httpd php php-mysqli mariadb105
     systemctl start httpd
     systemctl enable httpd
+    # Create Hello World page #
     echo "<h1>Hello, World!</h1>" > /var/www/html/index.html
+    # Additional configuration for PHP script to run # 
     sudo usermod -a -G apache ec2-user
     sudo chown -R ec2-user:apache /var/www
     sudo chmod 2775 /var/www
@@ -176,9 +179,10 @@ user_data = <<-EOF
       define('DB_DATABASE', 'demodb');
     ?>
     EOINC
-    cat 
+    # Download PHP script into ec2 # 
     curl -o /var/www/html/demo.php https://raw.githubusercontent.com/tanleekee/demo-terraform/main/demo.php
     EOF
+}
 ```
 
 
