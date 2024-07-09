@@ -61,11 +61,14 @@ resource "aws_instance" "web_server" {
 
   user_data = <<-EOF
     #!/bin/bash
+    # Install http server, and necessary tools/libraries #
     yum update -y
     yum install -y httpd php php-mysqli mariadb105
     systemctl start httpd
     systemctl enable httpd
+    # Create Hello World page #
     echo "<h1>Hello, World!</h1>" > /var/www/html/index.html
+    # Additional configuration for PHP script to run # 
     sudo usermod -a -G apache ec2-user
     sudo chown -R ec2-user:apache /var/www
     sudo chmod 2775 /var/www
@@ -80,7 +83,7 @@ resource "aws_instance" "web_server" {
       define('DB_DATABASE', 'demodb');
     ?>
     EOINC
-    cat 
+    # Download PHP script into ec2 # 
     curl -o /var/www/html/demo.php https://raw.githubusercontent.com/tanleekee/demo-terraform/main/demo.php
     EOF
 }
@@ -112,8 +115,8 @@ resource "aws_db_instance" "mysql_db" {
   instance_class         = "db.t3.micro"
   allocated_storage      = 20
   storage_type           = "gp2"
-  db_name                = "demodb"
-  username               = "demouser"
+  db_name                = "demodb" # Change this calue
+  username               = "demouser" # Change this value
   password               = "demoPassword" # Use a secure password
   vpc_security_group_ids = [aws_security_group.rds_sg.id]
   skip_final_snapshot    = true
