@@ -57,6 +57,8 @@ Create cloud resources. Terraform will prompt for confirmation. Enter yes to pro
 ```
 terraform apply
 ```
+Validate from AWS console, you should see ec2 and RDS have been created.  
+
 Validate web page hosted on ec2 (HTTP) is accessible. You whould see a simple web page showing **Hello, World!**
 ```
 http://public_IP_address_of_ec2/index.html
@@ -73,6 +75,8 @@ Terraform will prompt for confirmation. Enter yes to proceed, or no to cancel.
 ```
 terraform destroy
 ```
+Validate from AWS console that ec2 and RDS are removed | terminated
+
 ## Code blocks for resources creation
 
 ### ec2 creation
