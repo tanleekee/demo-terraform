@@ -11,7 +11,7 @@ ec2 instance will host php web page that interact with RDS database.
 ### Download Terraform and extract into Home folder
 
 ```
-curl -o terraform.zip https://releases.hashicorp.com/terraform/1.9.1/terraform_1.9.1_darwin_amd64.zip
+curl -o terraform.zip https://releases.hashicorp.com/terraform/1.9.1/terraform_1.9.1_linux_amd64.zip
 ```
 ```
 unzip terraform.zip -d bin/
@@ -51,7 +51,9 @@ Preview cloud resources creation
 ```
 terraform plan
 ```
-Create cloud resources. Terraform will prompt for confirmation. Enter yes to proceed, or no to cancel.
+Create cloud resources. Terraform will prompt for confirmation. Enter yes to proceed, or no to cancel.   
+*RDS instance provision takes ~5-6 minutes*
+
 ```
 terraform apply
 ```
